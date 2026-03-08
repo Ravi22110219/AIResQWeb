@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/FloodAIRepo/',   // IMPORTANT for GitHub Pages
+  base: '/',   // Correct for custom domain deployment
   build: {
     outDir: 'dist',
   },
