@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./HydroGNN.module.css";
 import IndianRiverBasinImg from "../../assets/photos/IndianRiverBasin.jpg";
 import Compound_Flood_100 from "../../assets/photos/Compound_Flood_100.jpg"
-import Resiience from "../../assets/photos/resiience.JPG"
+import Resiience from "../../assets/photos/resiience.jpg"
 import ResilienceRecovery from "../../assets/photos/ResilienceRecovery.png"
 import GondalSurfaceImg from "../../assets/photos/GondalSurfaceImg1.jpg"
 import { Link } from "react-router-dom";
