@@ -7,7 +7,7 @@ function ServicePage() {
       {/* Header */}
       <header style={headerStyle}>
         <h2 style={{ margin: 0 }}>
-          Aquatwin: AIResQ's Urban Flood Digital Twin
+          AquaResQ: AIResQ's Urban Flood Digital Twin
         </h2>
       </header>
 
