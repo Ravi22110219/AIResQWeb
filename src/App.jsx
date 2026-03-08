@@ -24,8 +24,8 @@ import DetailPage from './DashboardSection/DetailPage/Detail.jsx'
 import AuthPage from './DashboardSection/LoginPage/AuthPage.jsx'
 import ProtectedRoute from './DashboardSection/LoginPage/ProtectedRoute.jsx'
 import LocationSection from './DashboardSection/LocationPage/LocationSection.jsx'
-import Hiring from './Pages/HiringPage/Hiring.jsx'
-import JobRoles from './Pages/JobRolePages/JobRoles.jsx'
+// import Hiring from './Pages/HiringPage/Hiring.jsx'
+// import JobRoles from './Pages/JobRolePages/JobRoles.jsx'
 import BlogHomePage from './Pages/BlogHomePage/BlogHome.jsx'
 
 import BlogMainPage from './Pages/BlogHomePage/BlogMainPage.jsx'
@@ -68,8 +68,8 @@ function App() {
           <Route path="blog/:postId" element={<BlogMainPage />} />
 
           <Route path="contact-us" element={<ContactUs />} />
-          <Route path="job-roles" element={<JobRoles />} />
-          <Route path="hiring" element={<Hiring />} />
+          {/* <Route path="job-roles" element={<JobRoles />} /> */}
+          {/* <Route path="hiring" element={<Hiring />} /> */}
           <Route path="about-us" element={<AboutUsPage />} />
           <Route path="terms-and-condition" element={<TermAndCondition />} />
           <Route path="login" element={<AuthPage />} />

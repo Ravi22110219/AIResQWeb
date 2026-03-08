@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 import CardSection from "../Cards/CardsSection"
 import UrbanFlood from "../../Pages/KozhikodeFloodPage/UrbanFlood"
 import SuratProductMap from '../SuratProductMapPage/SuratProductMap'
-import WeAreHiring from "../WeAreHiring/WeAreHiring"
+// import WeAreHiring from "../WeAreHiring/WeAreHiring"
 import mainPageSidePhoto from "../../assets/photos/mainside.png"
 import AIResQVideo from "../VideoSection/AIResQVideo"
 import FounderAdvisorSlider from "../Founders/FounderAdvisorSlider"
