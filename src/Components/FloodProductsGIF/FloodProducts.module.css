@@ -1,0 +1,149 @@
+.section {
+  padding: 100px 5%;
+  background: linear-gradient(
+    135deg,
+    #4f4f51 0%,
+    #29494c 40%,
+    #5298a9 100%
+  );
+  color: white;
+}
+
+.container {
+  max-width: 94%;
+  margin: auto;
+}
+
+.headingBlock {
+  max-width: 96%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.headingBlock h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.headingBlock p {
+  text-align: justify;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* GRID */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* CARD */
+
+.card {
+  position: relative;
+  height: 430px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+
+  border: 1px solid rgba(107, 195, 210, 0.25);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* VIDEO */
+
+.video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: scaleY(1) scaleX(1.04);
+}
+
+/* OVERLAY */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    rgba(0, 0, 0, 0.15) 70%,
+    transparent 100%
+  );
+}
+
+/* TEXT BLOCK CONTROLS MOVEMENT */
+
+.textBlock {
+  transform: translateY(30px);
+  transition: transform 0.4s ease;
+}
+
+/* TITLE */
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #00ccff;
+  margin-bottom: 8px;
+}
+
+/* DESCRIPTION */
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: white;
+  text-align: justify;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.35s ease;
+}
+
+/* HOVER ANIMATION */
+
+.card:hover .textBlock {
+  transform: translateY(0);
+}
+
+.card:hover .description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    height: 430px;
+  }
+}

@@ -1,0 +1,189 @@
+/* ===============================
+   SECTION BACKGROUND
+================================= */
+
+.videoSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #4F4F51 0%, #29494c 40%, #5298A9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle ambient glow */
+.videoSection::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(107,195,210,0.25), transparent 70%);
+  filter: blur(60px);
+  top: -120px;
+  right: -120px;
+  pointer-events: none;
+}
+
+/* ===============================
+   CONTAINER
+================================= */
+
+.container {
+  width: 100%;
+  max-width: 94%;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===============================
+   HEADER
+================================= */
+
+.header {
+  text-align: center;
+  max-width: 96%;
+  margin-bottom: 48px;
+}
+
+.header h3 {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+/* gradient underline */
+.header h3::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #6BC3D2, #5298A9);
+}
+
+.header p {
+  margin-top: 28px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ===============================
+   LAPTOP FRAME
+================================= */
+
+.laptopFrame {
+  position: relative;
+  width: 80vw;
+  max-width: 900px;
+  aspect-ratio: 19 / 10.9;
+  background: #9fddff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow:
+    0 10px 40px rgba(19, 39, 53, 0.92),
+    0 0 80px rgba(107,195,210,0.25);
+  transition: transform 0.4s ease;
+}
+
+/* subtle hover lift */
+.laptopFrame:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* ===============================
+   SCREEN
+================================= */
+
+.screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0d2f38;
+  position: relative;
+}
+
+/* cinematic vignette */
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center,
+      transparent 60%,
+      rgba(0,0,0,0.25) 100%);
+}
+
+/* ===============================
+   VIDEO
+================================= */
+
+.videoIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ===============================
+   LAPTOP BASE
+================================= */
+
+.laptopFrame::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 20px;
+  background: #427387;
+  border-radius: 0 0 20px 20px;
+  box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.05);
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+  .videoSection {
+    padding: 70px 0;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .videoSection {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  .laptopFrame {
+    width: 92vw;
+    aspect-ratio: 16 / 9.4;
+  }
+
+  .header h3 {
+    font-size: 24px;
+  }
+
+  .header p {
+    font-size: 15px;
+  }
+}

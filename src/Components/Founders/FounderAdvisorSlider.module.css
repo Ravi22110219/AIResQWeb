@@ -1,0 +1,334 @@
+/* FounderAdvisorSlider.module.css */
+
+.teamSection {
+  padding: 50px 4% ;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(107, 195, 210, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(82, 152, 169, 0.15), transparent 40%),
+    linear-gradient(135deg, #4F4F51 0%, #29494c 40%, #5298A9 100%);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 100%;
+  /* height: 90h; */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.sectionTitle {
+  color: #ffffff;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+  color: #6BC3D2;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: rgba(107, 195, 210, 0.3);
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  margin-bottom: 60px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Slider Wrapper */
+.sliderWrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 20px 0 40px;
+}
+
+/* Gradient Overlays */
+.gradientOverlayLeft,
+.gradientOverlayRight {
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.gradientOverlayLeft {
+  left: 0;
+  background: linear-gradient(to right, 
+    rgba(15, 32, 39, 0.95) 0%,
+    rgba(15, 32, 39, 0.5) 50%,
+    transparent 100%
+  );
+}
+
+.gradientOverlayRight {
+  right: 0;
+  background: linear-gradient(to left, 
+    rgba(15, 32, 39, 0.95) 0%,
+    rgba(15, 32, 39, 0.5) 50%,
+    transparent 100%
+  );
+}
+
+/* Track */
+.sliderTrack {
+  display: flex;
+  width: max-content;
+  animation: scroll 65s linear infinite;
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+.sliderWrapper:hover .sliderTrack {
+  animation-play-state: paused;
+}
+
+/* Card */
+.card {
+  width: 300px;
+  margin: 0 20px;
+  padding: 20px 20px 30px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: grab;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(107, 195, 210, 0.5);
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(107, 195, 210, 0.3);
+}
+
+.cardGlow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(107, 195, 210, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover .cardGlow {
+  opacity: 1;
+}
+
+.imageWrapper {
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 1 / 1.1;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .imageOverlay {
+  opacity: 1;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+}
+
+.card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.role {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6BC3D2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  background: rgba(107, 195, 210, 0.1);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 30px;
+  border: 1px solid rgba(107, 195, 210, 0.3);
+}
+
+.card p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Progress Bar */
+.progressBar {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin: 30px auto 0;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, #6BC3D2, #5298A9);
+  border-radius: 2px;
+  animation: progress 2s ease-in-out infinite;
+}
+
+/* Infinite Scroll Animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes progress {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(200%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .gradientOverlayLeft,
+  .gradientOverlayRight {
+    width: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teamSection {
+    padding: 60px 5% 80px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    width: 300px;
+    margin: 0 12px;
+    padding: 16px 16px 24px;
+  }
+
+  .gradientOverlayLeft,
+  .gradientOverlayRight {
+    width: 40px;
+  }
+
+  .sliderTrack {
+    animation-duration: 25s;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 300px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .role {
+    font-size: 12px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+  .progressBar {
+    width: 150px;
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  .sliderTrack {
+    animation: none;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+  
+  .progressFill {
+    animation: none;
+  }
+}

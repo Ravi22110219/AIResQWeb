@@ -1,0 +1,36 @@
+.detailPage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.filters {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.cityDropdown, .datePicker {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  flex: 1;
+}
+
+.chartsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+}
+
+.chartBox {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}

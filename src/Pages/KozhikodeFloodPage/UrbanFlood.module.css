@@ -1,0 +1,709 @@
+/* ================================
+   MAIN SECTION
+================================ */
+.urbanFloodSection {
+  width: 100%;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+  padding: 30px 0;
+}
+
+.container {
+  max-width: 94%;
+  margin: 0 auto;
+  padding: 0 3%;
+}
+
+/* ================================
+   PAGE HEADER
+================================ */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.mainTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0a1929;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #0a1929 0%, #1e3a8a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subTitle {
+  font-size: 16px;
+  color: #546e7a;
+  margin: 0;
+  font-weight: 400;
+}
+
+.headerBadges {
+  display: flex;
+  gap: 12px;
+}
+
+.badge {
+  padding: 8px 16px;
+  background: white;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e293b;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ================================
+   MOBILE TABS
+================================ */
+.mobileTabs {
+  display: none;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.tabButton {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 16px;
+
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+
+  /* base look */
+  background: #ffffff;
+  color: #64748b;
+  border: 1.5px solid #e2ecf0;
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  transition: all 0.35s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+/* subtle hover for inactive tabs */
+.tabButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  background: #f8fafc;
+}
+
+/* ================= ACTIVE TAB ================= */
+
+.activeTab {
+  color: #ffffff;
+  border: 1.5px solid rgba(107,195,210,0.8);
+  background: linear-gradient(
+    135deg,
+    #5298A9,
+    #5CADBA,
+    #6BC3D2
+  );
+  box-shadow: 0 6px 22px rgba(107, 195, 210, 0.35);
+}
+
+/* center sweep layer */
+.activeTab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  background: linear-gradient(
+    135deg,
+    #6BC3D2,
+    #5CADBA,
+    #5298A9
+  );
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+/* hover animation for active tab */
+.activeTab:hover::before {
+  left: 0;
+  right: 0;
+}
+
+.activeTab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(107, 195, 210, 0.55);
+}
+
+/* click feel */
+.tabButton:active {
+  transform: scale(0.98);
+}
+
+
+/* ================================
+   MAIN LAYOUT
+================================ */
+.kozhikodeMapBox {
+  display: flex;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* ================================
+   LEFT MAP COLUMN
+================================ */
+.mapColumn {
+  flex: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+/* map header */
+.mapHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mapHeading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+.mapHeading:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(107, 195, 210, 0.35);
+  border-color: #b8ecff;
+}
+
+.headingIcon {
+  font-size: 28px;
+}
+
+.headingText h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #0a1929;
+}
+
+.headingText p {
+  font-size: 13px;
+  margin: 0;
+  color: #64748b;
+}
+
+/* map controls */
+.mapControls {
+  display: flex;
+  gap: 10px;
+}
+
+.refreshBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 26px;
+  border-radius: 40px;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  /* Border */
+  border: 1.5px solid rgba(107,195,210,0.6);
+
+  /* Text */
+  color: #ffffff;
+
+  /* Gradient background */
+  background: linear-gradient(
+    135deg,
+    #5298A9,
+    #5CADBA,
+    #6BC3D2
+  );
+
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  transition: all 0.35s ease;
+  box-shadow: 0 5px 20px rgba(107, 195, 210, 0.35);
+}
+
+/* 🔥 center expand layer */
+.refreshBtn::before {
+  content: '';
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #6BC3D2,
+    #5CADBA,
+    #5298A9
+  );
+
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+/* ✨ hover */
+.refreshBtn:hover::before {
+  left: 0;
+  right: 0;
+}
+
+.refreshBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(107, 195, 210, 0.55);
+  border-color: rgba(107,195,210,0.9);
+}
+
+/* 👇 optional click feel */
+.refreshBtn:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+
+.refreshBtn:hover .btnIcon {
+  transform: rotate(180deg);
+}
+
+.btnIcon {
+  transition: transform 0.5s ease;
+  font-size: 16px;
+}
+
+.fullscreenBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 40px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  cursor: pointer;
+  text-decoration: none;
+  color: #1e293b;
+  font-size: 20px;
+  transition: all 0.25s ease;
+}
+
+.fullscreenBtn:hover {
+  background: #1e3a8a;
+  color: white;
+  border-color: #1e3a8a;
+  transform: scale(1.05);
+}
+
+/* map wrapper */
+.kozhikodeMapWrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+}
+
+.kozhikodeMap {
+  width: 100%;
+  height: 500px;
+  border: none;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* loader overlay */
+.mapLoader {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  border-radius: 24px;
+  animation: fadeInSoft 0.35s ease;
+}
+
+.mapLoader p {
+  margin: 16px 0 4px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.loaderHint {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* spinner */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #1e3a8a;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* map legend */
+.mapLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #334155;
+}
+
+.legendColor {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+}
+
+/* ================================
+   RIGHT COLUMN
+================================ */
+.tableColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* chart card */
+.chartCard {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 10px 35px rgba(233, 252, 255, 0.55);
+  border-color: rgba(107,195,210,0.9);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 0 10px;
+}
+
+.chartCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 35px rgba(107, 195, 210, 0.55);
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.chartTitle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.chartIcon {
+  font-size: 28px;
+}
+
+.chartTitle h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #0a1929;
+}
+
+.chartTitle p {
+  font-size: 13px;
+  margin: 0;
+  color: #64748b;
+}
+
+.chartStatus {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #ecfdf5;
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #059669;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 1.5s ease infinite;
+}
+
+/* quick stats */
+.quickStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.statItem {
+  background: white;
+  padding: 14px 12px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.statItem:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+.statLabel {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.statValue {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0a1929;
+}
+
+/* info alert */
+.infoAlert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  background: #fffbeb;
+  border-radius: 16px;
+  border: 1px solid #fef3c7;
+}
+
+.alertIcon {
+  font-size: 20px;
+}
+
+.infoAlert p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #92400e;
+  flex: 1;
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  .mainTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .kozhikodeMapBox {
+    flex-direction: column;
+  }
+  
+  .mapColumn,
+  .tableColumn {
+    width: 100%;
+  }
+  
+  .kozhikodeMap {
+    height: 450px;
+  }
+  
+  .mobileTabs {
+    display: flex;
+  }
+  
+  .mapColumn,
+  .tableColumn {
+    display: none;
+  }
+  
+  .mapColumn.active,
+  .tableColumn.active {
+    display: flex;
+  }
+  
+  .headerBadges {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .mainTitle {
+    font-size: 24px;
+  }
+  
+  .mapHeaderRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .mapHeading {
+    width: 100%;
+  }
+  
+  .mapControls {
+    width: 100%;
+  }
+  
+  .refreshBtn {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .kozhikodeMap {
+    height: 400px;
+  }
+  
+  .quickStats {
+    grid-template-columns: 1fr;
+  }
+  
+  .mapLegend {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  .mainTitle {
+    font-size: 22px;
+  }
+  
+  .badge {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .headerBadges {
+    flex-direction: column;
+  }
+  
+  .kozhikodeMap {
+    height: 350px;
+  }
+  
+  .chartHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .chartStatus {
+    align-self: flex-start;
+  }
+  
+  .btnText {
+    display: none;
+  }
+  
+  .refreshBtn {
+    padding: 12px;
+  }
+  
+  .refreshBtn .btnIcon {
+    margin: 0;
+  }
+}

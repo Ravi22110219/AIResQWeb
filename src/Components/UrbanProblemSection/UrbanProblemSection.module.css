@@ -1,0 +1,173 @@
+.section {
+  width: 100%;
+  padding: 100px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  position: relative;
+}
+
+.container {
+  max-width: 94%;
+  margin: 0 auto;
+  padding: 0 3%;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ---------- LEFT ---------- */
+
+.left h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: #0a2534;
+  line-height: 1.2;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.left h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #5298a9, #6bc3d2);
+}
+
+.lead {
+  margin-top: 28px;
+  font-size: 18px;
+  color: #2d3748;
+  line-height: 1.7;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.body {
+  margin-top: 18px;
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* ---------- RIGHT ---------- */
+
+.focusHeader {
+  font-size: 16px;
+  font-weight: 700;
+  color: #5298a9;
+  letter-spacing: 0.6px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.focusGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* premium cards */
+
+.focusCard {
+  position: relative;
+  padding: 22px 22px 22px 56px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(107, 195, 210, 0.18);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+.focusCard:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, #4f4f51, #6bc3d2);
+  box-shadow: 0 18px 40px rgba(82, 152, 169, 0.18);
+  border-color: transparent;
+}
+
+/* glowing dot */
+
+.dot {
+  position: absolute;
+  left: 20px;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5298a9, #6bc3d2);
+  box-shadow: 0 0 0 6px rgba(107, 195, 210, 0.15);
+  animation: pulseDot 2.5s infinite ease-in-out;
+}
+
+.focusCard h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0a2534;
+  margin-bottom: 6px;
+  transition: color 0.35s ease;
+}
+
+.focusCard p {
+  font-size: 14.5px;
+  color: #4a5568;
+  line-height: 1.6;
+  transition: color 0.35s ease;
+}
+
+/* hover text */
+
+.focusCard:hover h4,
+.focusCard:hover p {
+  color: white;
+}
+
+.focusCard:hover .dot {
+  background: white;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.25);
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.7;
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .left h2 {
+    font-size: 26px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .body {
+    font-size: 15px;
+  }
+}

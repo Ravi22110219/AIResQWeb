@@ -1,0 +1,221 @@
+/* === MIR Lab News Section Styles === */
+.news {
+  width: 100%;
+  padding: 30px 4%;
+  margin:  0;
+  background-color: #f5f5f5;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.sectionHeader h3 {
+  font-size: calc(18px + 1vw);
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+.sectionHeader h1 {
+  font-size: calc(15px + 0.3vw);
+  font-weight: 500;
+  color: rgb(0, 8, 50);
+}
+
+.newsBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 400px;
+  animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+.wrapper {
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.wrapper i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  font-size: 1.25rem;
+  background: #ece8e8;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.1s linear;
+  z-index: 10;
+}
+
+.wrapper i:active {
+  transform: translateY(-50%) scale(0.85);
+}
+
+.wrapper i:first-child {
+  left: -25px;
+}
+
+.wrapper i:last-child {
+  right: -25px;
+}
+
+.carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 4) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.noTransition {
+  scroll-behavior: auto;
+}
+
+.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+
+
+
+
+
+.card {
+  scroll-snap-align: start;
+  min-width: 300px;
+  max-width: 380px;
+  height: 520px;
+  list-style: none;
+  background-image: linear-gradient(rgb(126, 146, 163), rgb(255, 255, 255));
+  padding: 15px;
+  border-radius: 12px;
+  border: 1.5px solid rgb(241, 254, 255);
+  border-bottom-color: rgb(255, 192, 44);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  /* background: linear-gradient(360deg, #ff5b3a, #f09819), linear-gradient(0deg, #fffdea, #fffdea00); */
+  color: white;
+}
+
+.newsImg {
+  background: #ffffff;
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.newsImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.newsImg img:hover {
+  transform: scale(1.05);
+}
+
+.card h4 {
+  margin-top: 15px;
+  color: black;
+  font-size: calc(14px + 0.3vw);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #444;
+  font-size: calc(12px + 0.2vw);
+  margin-bottom: 15px;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  bottom: 0;
+}
+
+.icons span {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.icons span svg {
+  margin-right: 5px;
+  color: crimson;
+}
+
+
+@media screen and (max-width: 1500px) {
+  .carousel {
+    grid-auto-columns: calc((100% / 3) - 9px);
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .carousel {
+    grid-auto-columns: 100%;
+  }
+
+  .wrapper i {
+    height: 40px;
+    width: 40px;
+    font-size: 1rem;
+  }
+}

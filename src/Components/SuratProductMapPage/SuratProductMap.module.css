@@ -1,0 +1,83 @@
+.suratMapBox {
+  padding: 30px 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Animation base state */
+.mapColumn,
+.tableColumn {
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+/* When in view: trigger animation */
+.animate {
+  animation: growWidth 0.8s ease-out forwards;
+}
+
+@keyframes growWidth {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Content Columns */
+.mapColumn {
+  width: 60%;
+}
+
+.tableColumn {
+  width: 40%;
+  padding-right: 20px;
+}
+
+.mapHeading {
+  width: fit-content;
+  border: 2px solid black;
+  padding: 20px;
+  background-size: 200%;
+  transition: 0.3s ease-out;
+}
+
+.mapHeading:hover {
+  background-color: black;
+  color: white;
+}
+
+.mapHeading h1 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.suratMap {
+  width: 100%;
+  margin-top: 30px;
+  padding-right: 20px;
+}
+
+/* Optional: Responsive behavior */
+@media (max-width: 768px) {
+  .suratMapBox {
+    flex-direction: column;
+  }
+
+  .mapColumn,
+  .tableColumn {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .mapHeading {
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,232 @@
+.capSection {
+  width: 100%;
+  padding: 80px 0;
+  background: linear-gradient(to bottom, #f8fafc, #ffffff);
+}
+
+.container {
+  max-width: 94%;
+  margin: 0 auto;
+  padding: 0 3%;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  text-align: center;
+  max-width: 96%;
+  margin: 0 auto 60px;
+}
+
+.header h2 {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 700;
+  color: #0a2534;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.header h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #5298a9, #6bc3d2);
+}
+
+.header p {
+  margin-top: 28px;
+  color: #4a5568;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* ---------- Grid ---------- */
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Card ---------- */
+
+.card {
+  position: relative;
+  flex: 1 1 calc(33.333% - 30px);
+  min-width: 260px;
+  max-width: 320px;
+  padding: 32px 26px;
+  background: white;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(107, 195, 210, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+/* hover like upper cards */
+.card:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(135deg, #4f4f51, #6bc3d2);
+  box-shadow: 0 20px 40px rgba(82, 152, 169, 0.525);
+  border-color: transparent;
+}
+  
+
+.card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a2534;
+  margin-bottom: 10px;
+  transition: color 0.35s ease;
+}
+
+.card p {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.6;
+  transition: color 0.35s ease;
+}
+
+/* text turns white on hover */
+.card:hover h3,
+.card:hover p {
+  color: white;
+  
+}
+
+/* ---------- Glow Accent ---------- */
+
+.iconGlow {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 18px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #5298a9, #6bc3d2);
+  opacity: 0.15;
+  transition: all 0.35s ease;
+}
+
+.card:hover .iconGlow {
+  background: white;
+  opacity: 0.25;
+}
+
+/* ---------- Bottom Accent Line ---------- */
+
+.bottomLine {
+  width: 40px;
+  height: 3px;
+  margin: 18px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #5298a9, #6bc3d2);
+  transition: all 0.35s ease;
+}
+
+.card:hover .bottomLine {
+  background: white;
+  width: 70px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .card {
+    flex: 1 1 calc(50% - 30px);
+  }
+}
+
+@media (max-width: 600px) {
+  .capSection {
+    padding: 60px 0;
+  }
+
+  .card {
+    flex: 1 1 100%;
+    max-width: 420px;
+  }
+
+  .header p {
+    font-size: 16px;
+  }
+}
+/* ---------- Premium Animated Icons ---------- */
+
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #5298a9, #6bc3d2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(107, 195, 210, 0.35);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* floating glow animation */
+.iconWrapper::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 60%);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.iconSvg {
+  width: 28px;
+  height: 28px;
+  stroke: white;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  z-index: 2;
+  animation: floatIcon 3.5s ease-in-out infinite;
+}
+
+/* special parts */
+.iconTick,
+.iconLines {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: drawLine 2.5s ease forwards infinite;
+}
+
+/* hover like premium sites */
+.card:hover .iconWrapper {
+  background: white;
+  transform: translateY(-2px) scale(1.05);
+}
+
+.card:hover .iconSvg {
+  stroke: #5298a9;
+}
+
+/* ---------- Keyframes ---------- */
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.15); }
+}
+
+@keyframes drawLine {
+  0% { stroke-dashoffset: 40; }
+  40% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}

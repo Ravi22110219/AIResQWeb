@@ -1,0 +1,55 @@
+.sidebar {
+  position: fixed;
+  width: 200px;
+  background-color: #0a2534;
+  color: #fff;
+  margin-top: 83px;
+  height: calc(100vh - 83px); /* Dynamic height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1000;
+  border-top: 1px solid rgba(219, 219, 219, 0.486);
+}
+
+
+.sidebar ul {
+  list-style: none;
+  /* padding: 10px; */
+}
+
+.sidebar li {
+  padding: 10px 30px;
+  cursor: pointer;
+  /* border-radius: 5px; */
+  margin-top: 1px;
+}
+
+.sidebar li:hover, .sidebar .active {
+  background-color: #ddd;
+  color: rgb(0, 0, 0);
+  
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: .5px solid rgba(206, 206, 206, 0.651) ;
+  padding: 10px 0 ;
+  
+}
+
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.dropdown {
+  margin-left: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}

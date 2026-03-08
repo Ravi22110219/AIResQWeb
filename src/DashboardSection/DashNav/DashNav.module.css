@@ -1,0 +1,64 @@
+.dashNav {
+   position: fixed;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0a2534;
+  color: #fff;
+  height: 83px;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  z-index: 2000;
+  width: 200px;
+}
+
+.logoImg {
+  width:70px;
+  margin-right: 10px;
+  z-index: 2000;
+}
+
+.logo h1 {
+  font-size: 30px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  z-index: 2000;
+}
+
+.navLinks {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+.authButtons button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.authButtons .login {
+  background-color: transparent;
+  color: white;
+}
+
+.authButtons .signup {
+  background-color: #ffc107;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+}

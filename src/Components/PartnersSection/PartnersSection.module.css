@@ -1,0 +1,124 @@
+/* =========================
+   SECTION
+========================= */
+
+.section {
+  padding: 80px 5%;
+  background: white;
+
+  /* color: white; */
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+/* =========================
+   HEADING
+========================= */
+
+.heading {
+  color: #0a2534;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  margin-bottom: 50px;
+  line-height: 1.2;
+  position: relative;
+}
+.heading::after {
+    content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #5298A9, #6BC3D2);
+  border-radius: 2px;
+}
+/* =========================
+   GRID
+========================= */
+
+.grid {
+  display: grid;
+  
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  background: rgb(242, 242, 242);
+  border: 1px solid rgba(107,195,210,0.2);
+  border-radius: 16px;
+
+  padding: 28px 22px;
+
+  backdrop-filter: blur(6px);
+  transition: all 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(107,195,210,0.6);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logoWrapper {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.logoWrapper img {
+  max-height: 100%;
+  max-width: 140px;
+  object-fit: contain;
+  
+}
+
+/* =========================
+   NAME
+========================= */
+
+.name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1b2837;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+}

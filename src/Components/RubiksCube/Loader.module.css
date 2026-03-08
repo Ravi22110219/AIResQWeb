@@ -1,0 +1,49 @@
+.loader {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  transform: rotateX(65deg) rotate(45deg);
+  animation: layers1 2s linear infinite alternate;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: layerTr 2s linear infinite alternate;
+}
+
+.layer:nth-child(1) {
+  z-index: 3;
+  transform: translate(200px, 200px);
+}
+
+.layer:nth-child(2) {
+  z-index: 2;
+  transform: translate(-60px, -60px);
+}
+
+.layer:nth-child(3) {
+  z-index: 1;
+  transform: translate(-60px, -60px);
+}
+
+@keyframes layers1 {
+  0% {
+    box-shadow: 0px 0px 0 0px;
+  }
+  50%,
+  100% {
+    box-shadow: 20px 20px 0 -4px;
+  }
+}
+
+@keyframes layerTr {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-65px, -65px) scale(1);
+  }
+}

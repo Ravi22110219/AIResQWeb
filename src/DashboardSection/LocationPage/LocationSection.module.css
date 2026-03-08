@@ -1,0 +1,122 @@
+/* Container for the entire location page */
+.locationSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Filters Section (City, Sub-City Dropdown, and Date Picker) */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cityDropdown,
+.subCityDropdown,
+.datePicker {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  font-size: 16px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.datePicker {
+  flex: 1.5;
+}
+
+/* Content Section */
+.content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Iframe Section */
+.htmlSection {
+  flex: 3;
+  height: 60vh;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Insights Section */
+.insightsSection {
+  flex: 1;
+  height: 60vh;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #e9ecef;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Chart Section */
+.chartSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chartBox {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Chart title */
+.chartBox h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .htmlSection,
+  .insightsSection {
+    flex: none;
+    height: 40vh;
+  }
+
+  .chartBox {
+    padding: 15px;
+  }
+}
