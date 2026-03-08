@@ -1,8 +1,7 @@
-{
-  "homepage": "https://Ravi22110219.github.io/FloodAIRepo",
-  "name": "FloodAIRepo",
+{"homepage": "https://ravi22110219.github.io/AIResQWeb",
+   "name": "airesqweb",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "build": "vite build",
