@@ -103,7 +103,7 @@
   width: 0%;
   background: linear-gradient(90deg, #6BC3D2, #ffffff);
   border-radius: 10px;
-  animation: progress 2s ease-in-out forwards;
+  animation: progress .5s ease-in-out forwards;
 }
 
 /* Water Drops Animation */
