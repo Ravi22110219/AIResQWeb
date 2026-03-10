@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import { Link } from "react-router-dom";
 import styles from "./LandingPage.module.css";
@@ -12,9 +12,24 @@ import grid6 from "../../assets/photos/landingPage/6.jpg";
 
 const LandingPage = () => {
   const typingRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
 
-  const imagesColA = [grid1, grid2, grid3, grid1, grid2, grid3];
-  const imagesColB = [grid4, grid5, grid6, grid4, grid5, grid6];
+  // Create seamless infinite arrays by duplicating the images multiple times
+  const baseImagesColA = [grid1, grid2, grid3];
+  const baseImagesColB = [grid4, grid5, grid6];
+  
+  // Repeat images multiple times for smooth infinite scroll
+  const imagesColA = [...baseImagesColA, ...baseImagesColA, ...baseImagesColA, ...baseImagesColA];
+  const imagesColB = [...baseImagesColB, ...baseImagesColB, ...baseImagesColB, ...baseImagesColB];
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (!typingRef.current) return;
@@ -45,26 +60,20 @@ const LandingPage = () => {
            Developed in India, AIResQ combines live, science-grounded flood simulations with decision-ready insights to help cities, infrastructure owners, and industries understand flood behaviour and plan the right actions.
           </p>
 
-          {/* <p>
-            AquaTwin delivers more than 100× speed-up over traditional physical
-            models with comparable accuracy, enabling real-time, city-scale flood
-            foresight.
-          </p> */}
-
           <Link to="/urban-flood">
             <button>See the Platform in Action</button>
           </Link>
         </div>
 
         <div className={styles.LandingPageContentCol_2}>
-          <div className={styles.imageColumnUp}>
+          <div className={`${styles.imageColumn} ${isMobile ? styles.scrollLeft : styles.scrollUp}`}>
             {imagesColA.map((src, i) => (
               <div key={`a-${i}`} className={styles.imageCard}>
                 <img src={src} alt={`Flood analysis ${i + 1}`} loading="lazy" />
               </div>
             ))}
           </div>
-          <div className={styles.imageColumnDown}>
+          <div className={`${styles.imageColumn} ${isMobile ? styles.scrollRight : styles.scrollDown}`}>
             {imagesColB.map((src, i) => (
               <div key={`b-${i}`} className={styles.imageCard}>
                 <img src={src} alt={`Flood data ${i + 1}`} loading="lazy" />

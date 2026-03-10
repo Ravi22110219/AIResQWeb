@@ -5,7 +5,7 @@ const capabilities = [
   {
     id: 1,
     title: "Accuracy",
-    desc: "Research-backed, physics-consistent flood modelling",
+    desc: "Validated with past records and sensor observations",
     icon: (
       <svg viewBox="0 0 24 24" className={styles.iconSvg}>
         <path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z" />
@@ -43,8 +43,7 @@ const CapabilitiesSection = () => {
         <header className={styles.header}>
           <h2>Designed for Real-World Urban Complexity</h2>
           <p>
-            Foundational capabilities that make city-scale flood intelligence
-            possible
+           Foundational capabilities that make near real-time flood prediction possible
           </p>
         </header>
 

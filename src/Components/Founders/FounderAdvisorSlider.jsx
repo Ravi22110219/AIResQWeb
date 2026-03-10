@@ -29,7 +29,7 @@ const teamMembers = [
   {
     name: "Dr. Divya Upadhyay",
     role: "Co-founder and CTO",
-    position: "Post-doctoral Fellow, IIT Gandhinagar",
+    position: "PhD Civil IIT Gandhinagar\nIIT Kanpur Alumnus",
     image: Divya_Upadhyay,
   },
   {

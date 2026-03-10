@@ -56,49 +56,39 @@
   font-weight: 700;
   cursor: pointer;
   border-radius: 8px;
-
-  /* Keep Border (Signing Border Style) */
   border: 1.5px solid rgba(107,195,210,0.6);
-
   color: #ffffff;
   position: relative;
   overflow: hidden;
-
   background: linear-gradient(
     135deg,
     #5298A9,
     #5CADBA,
     #6BC3D2
   );
-
   transition: all 0.35s ease;
   align-self: flex-start;
   box-shadow: 0 5px 20px rgba(107, 195, 210, 0.35);
   z-index: 1;
 }
 
-/* CENTER EXPAND HOVER LAYER */
 .LandingPageContentCol_1 button::before {
   content: '';
   position: absolute;
-
   top: 0;
   bottom: 0;
   left: 50%;
   right: 50%;
-
   background: linear-gradient(
     135deg,
     #6BC3D2,
     #5CADBA,
     #5298A9
   );
-
   z-index: -1;
   transition: all 0.4s ease;
 }
 
-/* HOVER EFFECT */
 .LandingPageContentCol_1 button:hover::before {
   left: 0;
   right: 0;
@@ -126,16 +116,15 @@
   flex-direction: column;
   gap: 16px;
   width: 50%;
+  /* Remove animation from here - will be applied via specific classes */
 }
 
-.imageColumnUp {
-  composes: imageColumn;
-  animation: scrollUp 20s linear infinite;
+.scrollUp {
+  animation: scrollUp 30s linear infinite;
 }
 
-.imageColumnDown {
-  composes: imageColumn;
-  animation: scrollDown 20s linear infinite;
+.scrollDown {
+  animation: scrollDown 30s linear infinite;
 }
 
 .imageCard {
@@ -162,12 +151,12 @@
 
 @keyframes scrollUp {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
+  100% { transform: translateY(-50%); } /* Move up by half (one set of images) */
 }
 
 @keyframes scrollDown {
-  0% { transform: translateY(-50%); }
-  100% { transform: translateY(0); }
+  0% { transform: translateY(-50%); } /* Start at half position */
+  100% { transform: translateY(0); } /* End at start */
 }
 
 .TypingEffect {
@@ -227,8 +216,13 @@
     height: 100%;
   }
 
-  .imageColumnUp { animation: scrollLeft 20s linear infinite; }
-  .imageColumnDown { animation: scrollRight 20s linear infinite; }
+  .scrollLeft {
+    animation: scrollLeft 30s linear infinite;
+  }
+
+  .scrollRight {
+    animation: scrollRight 30s linear infinite;
+  }
 
   .imageCard {
     width: 220px;
@@ -239,12 +233,12 @@
 
 @keyframes scrollLeft {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-50%); } /* Move left by half (one set of images) */
 }
 
 @keyframes scrollRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0% { transform: translateX(-50%); } /* Start at half position */
+  100% { transform: translateX(0); } /* End at start */
 }
 
 @media (max-width: 600px) {
