@@ -1,6 +1,6 @@
 import styles from "./PartnersSection.module.css";
 
-import iitrp from "../../assets/photos/partners/IITGN_logo.png";
+import iitrp from "../../assets/photos/partners/IIEC_IITGN.png";
 import itel from "../../assets/photos/partners/ITEL_Logo.png";
 import mir from "../../assets/photos/partners/MIRLOGO.png";
 import airawat from "../../assets/photos/partners/Airawat.png";
