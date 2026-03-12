@@ -22,10 +22,10 @@ const UrbanProblemSection = () => {
       <div className={styles.container}>
         {/* Left Content */}
         <div className={styles.left}>
-          <h2>Urban Flooding Is Not A Data Problem Alone.</h2>
+          <h2>It Is A Systems Problem</h2>
 
           <p className={styles.lead}>
-            It is a systems problem, where rainfall, drainage, infrastructure,
+            Where rainfall, drainage, infrastructure,
             and decisions intersect under pressure.
           </p>
 
