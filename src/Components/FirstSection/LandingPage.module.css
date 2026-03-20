@@ -47,7 +47,6 @@
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.94);
   text-align: justify;
-
 }
 
 .LandingPageContentCol_1 button {
@@ -112,19 +111,16 @@
 }
 
 .imageColumn {
+  width: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.imageTrack {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 50%;
-  /* Remove animation from here - will be applied via specific classes */
-}
-
-.scrollUp {
-  animation: scrollUp 30s linear infinite;
-}
-
-.scrollDown {
-  animation: scrollDown 30s linear infinite;
+  will-change: transform;
 }
 
 .imageCard {
@@ -135,6 +131,7 @@
   border: 1px solid rgba(107, 195, 210, 0.15);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #1a2a2e;
 }
 
 .imageCard:hover {
@@ -149,14 +146,31 @@
   display: block;
 }
 
+/* Desktop vertical scrolling */
+.scrollUp .imageTrack {
+  animation: scrollUp 100s linear infinite;
+}
+
+.scrollDown .imageTrack {
+  animation: scrollDown 100s linear infinite;
+}
+
 @keyframes scrollUp {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); } /* Move up by half (one set of images) */
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
 }
 
 @keyframes scrollDown {
-  0% { transform: translateY(-50%); } /* Start at half position */
-  100% { transform: translateY(0); } /* End at start */
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .TypingEffect {
@@ -185,6 +199,7 @@
   width: fit-content;
 }
 
+/* Mobile responsive styles */
 @media (max-width: 1024px) {
   .LandingPageContentColumn {
     flex-direction: column;
@@ -211,17 +226,21 @@
   }
 
   .imageColumn {
-    flex-direction: row;
     width: auto;
-    height: 100%;
+    overflow: hidden;
   }
 
-  .scrollLeft {
-    animation: scrollLeft 30s linear infinite;
+  .imageTrack {
+    flex-direction: row;
+    gap: 16px;
   }
 
-  .scrollRight {
-    animation: scrollRight 30s linear infinite;
+  .scrollLeft .imageTrack {
+    animation: scrollLeft 20s linear infinite;
+  }
+
+  .scrollRight .imageTrack {
+    animation: scrollRight 20s linear infinite;
   }
 
   .imageCard {
@@ -232,13 +251,21 @@
 }
 
 @keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* Move left by half (one set of images) */
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes scrollRight {
-  0% { transform: translateX(-50%); } /* Start at half position */
-  100% { transform: translateX(0); } /* End at start */
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: 600px) {

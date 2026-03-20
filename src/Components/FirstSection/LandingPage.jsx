@@ -13,14 +13,10 @@ import grid6 from "../../assets/photos/landingPage/6.jpg";
 const LandingPage = () => {
   const typingRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
-
-  // Create seamless infinite arrays by duplicating the images multiple times
+  
+  // Only use the original 6 images
   const baseImagesColA = [grid1, grid2, grid3];
   const baseImagesColB = [grid4, grid5, grid6];
-  
-  // Repeat images multiple times for smooth infinite scroll
-  const imagesColA = [...baseImagesColA, ...baseImagesColA, ...baseImagesColA, ...baseImagesColA];
-  const imagesColB = [...baseImagesColB, ...baseImagesColB, ...baseImagesColB, ...baseImagesColB];
 
   useEffect(() => {
     const handleResize = () => {
@@ -66,19 +62,23 @@ const LandingPage = () => {
         </div>
 
         <div className={styles.LandingPageContentCol_2}>
-          <div className={`${styles.imageColumn} ${isMobile ? styles.scrollLeft : styles.scrollUp}`}>
-            {imagesColA.map((src, i) => (
-              <div key={`a-${i}`} className={styles.imageCard}>
-                <img src={src} alt={`Flood analysis ${i + 1}`} loading="lazy" />
-              </div>
-            ))}
+          <div className={`${styles.imageColumn} ${styles.imageColumnLeft} ${isMobile ? styles.scrollLeft : styles.scrollUp}`}>
+            <div className={styles.imageTrack}>
+              {[...baseImagesColA, ...baseImagesColA].map((src, i) => (
+                <div key={`a-${i}`} className={styles.imageCard}>
+                  <img src={src} alt={`Flood analysis ${(i % 3) + 1}`} loading="eager" />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className={`${styles.imageColumn} ${isMobile ? styles.scrollRight : styles.scrollDown}`}>
-            {imagesColB.map((src, i) => (
-              <div key={`b-${i}`} className={styles.imageCard}>
-                <img src={src} alt={`Flood data ${i + 1}`} loading="lazy" />
-              </div>
-            ))}
+          <div className={`${styles.imageColumn} ${styles.imageColumnRight} ${isMobile ? styles.scrollRight : styles.scrollDown}`}>
+            <div className={styles.imageTrack}>
+              {[...baseImagesColB, ...baseImagesColB].map((src, i) => (
+                <div key={`b-${i}`} className={styles.imageCard}>
+                  <img src={src} alt={`Flood data ${(i % 3) + 1}`} loading="eager" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
