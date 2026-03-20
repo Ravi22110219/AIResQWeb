@@ -14,7 +14,10 @@ const LandingPage = () => {
   const typingRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
   
-  // Only use the original 6 images
+  // All 6 images combined for mobile view
+  const allImages = [grid1, grid2, grid3, grid4, grid5, grid6];
+  
+  // Separate images for desktop view
   const baseImagesColA = [grid1, grid2, grid3];
   const baseImagesColB = [grid4, grid5, grid6];
 
@@ -61,26 +64,40 @@ const LandingPage = () => {
           </Link>
         </div>
 
-        <div className={styles.LandingPageContentCol_2}>
-          <div className={`${styles.imageColumn} ${styles.imageColumnLeft} ${isMobile ? styles.scrollLeft : styles.scrollUp}`}>
-            <div className={styles.imageTrack}>
-              {[...baseImagesColA, ...baseImagesColA].map((src, i) => (
-                <div key={`a-${i}`} className={styles.imageCard}>
-                  <img src={src} alt={`Flood analysis ${(i % 3) + 1}`} loading="eager" />
+        {isMobile ? (
+          // Mobile view - single layer with all images scrolling right to left
+          <div className={styles.LandingPageContentCol_2_Mobile}>
+            <div className={styles.mobileImageTrack}>
+              {[...allImages, ...allImages, ...allImages].map((src, i) => (
+                <div key={`mobile-${i}`} className={styles.mobileImageCard}>
+                  <img src={src} alt={`Flood data ${(i % 6) + 1}`} loading="eager" />
                 </div>
               ))}
             </div>
           </div>
-          <div className={`${styles.imageColumn} ${styles.imageColumnRight} ${isMobile ? styles.scrollRight : styles.scrollDown}`}>
-            <div className={styles.imageTrack}>
-              {[...baseImagesColB, ...baseImagesColB].map((src, i) => (
-                <div key={`b-${i}`} className={styles.imageCard}>
-                  <img src={src} alt={`Flood data ${(i % 3) + 1}`} loading="eager" />
-                </div>
-              ))}
+        ) : (
+          // Desktop view - two columns scrolling vertically
+          <div className={styles.LandingPageContentCol_2}>
+            <div className={styles.imageColumn}>
+              <div className={styles.imageTrack}>
+                {[...baseImagesColA, ...baseImagesColA].map((src, i) => (
+                  <div key={`a-${i}`} className={styles.imageCard}>
+                    <img src={src} alt={`Flood analysis ${(i % 3) + 1}`} loading="eager" />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className={styles.imageColumn}>
+              <div className={`${styles.imageTrack} ${styles.scrollDownTrack}`}>
+                {[...baseImagesColB, ...baseImagesColB].map((src, i) => (
+                  <div key={`b-${i}`} className={styles.imageCard}>
+                    <img src={src} alt={`Flood data ${(i % 3) + 1}`} loading="eager" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
